@@ -1,6 +1,6 @@
 services:
-  - type: worker
-    name: github-info-bot
+  - type: web
+    name: GitHub
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
