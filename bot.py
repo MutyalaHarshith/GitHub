@@ -4,6 +4,12 @@ from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 from telegram.update import Update
 
+# Author / Owner Info
+AUTHOR = "Mutyala Harshith"
+OWNER_LINK = "https://t.me/Mutyalaharshith"
+CHANNEL = "https://t.me/ExistBots"
+SUPPORT = "https://t.me/GroupExist"
+
 # Enable logging
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -16,12 +22,18 @@ BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
 
 # ---------- START COMMAND ----------
 def start(update: Update, context: CallbackContext):
-    update.message.reply_text(
-        "👋 Welcome! \n\n"
+    text = (
+        "👋 Welcome to <b>GitHub Info Bot</b>!\n\n"
+        "📌 Features:\n"
         "1️⃣ Send me a GitHub repository link, and I'll give you a ZIP download.\n"
-        "2️⃣ Use <code>/github username</code> to get GitHub user details.",
-        parse_mode="HTML"
+        "2️⃣ Use <code>/github username</code> to get GitHub user details.\n\n"
+        f"👨‍💻 <b>Author:</b> {AUTHOR}\n"
+        f"👑 <b>Owner:</b> <a href='{OWNER_LINK}'>@Mutyalaharshith</a>\n"
+        f"📢 <b>Channel:</b> <a href='{CHANNEL}'>ExistBots</a>\n"
+        f"💬 <b>Support Group:</b> <a href='{SUPPORT}'>GroupExist</a>"
     )
+
+    update.message.reply_text(text, parse_mode="HTML", disable_web_page_preview=True)
 
 # ---------- GITHUB PROFILE FETCH ----------
 def github_profile(update: Update, context: CallbackContext):
@@ -46,7 +58,7 @@ def github_profile(update: Update, context: CallbackContext):
             )
             return
 
-        # Extract all fields
+        # Extract fields
         name = data.get("name") or "N/A"
         login = data.get("login") or "N/A"
         id_ = data.get("id") or "N/A"
@@ -121,7 +133,7 @@ def github_repo(update: Update, context: CallbackContext):
 
         inline_keyboard = InlineKeyboardMarkup([
             [InlineKeyboardButton("Download ZIP 📥", url=download_link)],
-            [InlineKeyboardButton("Developer 👨‍💻", url="https://t.me/Mutyalaharshith")]
+            [InlineKeyboardButton("Developer 👨‍💻", url=OWNER_LINK)]
         ])
 
         update.message.reply_document(
