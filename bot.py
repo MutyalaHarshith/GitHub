@@ -3,6 +3,8 @@ import requests
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 from telegram.update import Update
+import imghdr_pure as imghdr
+
 
 # Author / Owner Info
 AUTHOR = "Mutyala Harshith"
