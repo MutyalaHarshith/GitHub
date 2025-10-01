@@ -1,0 +1,19 @@
+{
+  "name": "github-info-bot",
+  "description": "A Telegram bot that fetches GitHub profiles and repositories.",
+  "repository": "https://github.com/MutyalaHarshith/GitHub",
+  "keywords": ["telegram", "bot", "github", "python"],
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Your Telegram bot token from BotFather",
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "stack": "heroku-20"
+}
