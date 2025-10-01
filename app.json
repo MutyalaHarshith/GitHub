@@ -1,5 +1,5 @@
 {
-  "name": "GitHub"
+  "name": "GitHub",
   "description": "A Telegram bot that fetches GitHub profiles and repositories.",
   "repository": "https://github.com/MutyalaHarshith/GitHub",
   "keywords": ["telegram", "bot", "github", "python"],
